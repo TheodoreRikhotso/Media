@@ -163,6 +163,7 @@ public class PlaySingle extends Activity implements MediaPlayer.OnCompletionList
                 } else {
                     play.setImageDrawable(getResources().getDrawable(R.drawable.btn_pause));
                     playSong(p);
+                    Toast.makeText(PlaySingle.this, " Song", Toast.LENGTH_LONG).show();
                 }
                 Toast.makeText(PlaySingle.this, "pre", Toast.LENGTH_LONG).show();
 
@@ -180,8 +181,10 @@ public class PlaySingle extends Activity implements MediaPlayer.OnCompletionList
 
                 } else {
                     play.setImageDrawable(getResources().getDrawable(R.drawable.btn_pause));
-                    playSong(p);
                     Toast.makeText(PlaySingle.this, "Last Song", Toast.LENGTH_LONG).show();
+
+                    playSong(p);
+
                 }
 
 
@@ -230,6 +233,7 @@ public class PlaySingle extends Activity implements MediaPlayer.OnCompletionList
             public void onClick(View view) {
                 if(isRepeat){
                     isRepeat = false;
+
                     Toast.makeText(getApplicationContext(), "Repeat is OFF", Toast.LENGTH_SHORT).show();
                     btnRepeat.setImageResource(R.drawable.btn_repeat);
                 }else{
@@ -340,7 +344,7 @@ public class PlaySingle extends Activity implements MediaPlayer.OnCompletionList
 
                 // Running this thread after 100 milliseconds
                 mHandler.postDelayed(this, 100);
-                mHandler.removeCallbacks(mUpdateTimeTask);
+
             }catch (Exception e)
             {
                 e.printStackTrace();
@@ -404,6 +408,13 @@ public class PlaySingle extends Activity implements MediaPlayer.OnCompletionList
     protected void onStop() {
         super.onStop();
         releaseMediaPlayer();
+    }
+    @Override
+    protected void onPause() {
+        super.onPause();
+        mp.stop();
+        mp.release();
+
     }
 //
     private void releaseMediaPlayer() {

@@ -2,7 +2,7 @@
 <LinearLayout xmlns:android="http://schemas.android.com/apk/res/android"
     android:layout_width="fill_parent"
     android:layout_height="fill_parent"
-    android:background="#BF360C"
+    android:background="#0038A8"
     android:orientation="vertical">
 
     <SearchView
@@ -13,7 +13,7 @@
         android:id="@+id/lvList"
         android:layout_width="fill_parent"
         android:layout_height="fill_parent"
-        android:divider="#FFB300"
+        android:divider="#42C0FB"
         android:dividerHeight="1dp"
         android:listSelector="@drawable/list_selector" />
 
